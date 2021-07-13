@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C3B9D5"
+    android:background="#E89379"
     tools:context=".splash">
 
     <ImageView
@@ -21,6 +21,7 @@
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:textSize="25sp"
+        android:textStyle="bold"
         android:fontFamily="cursive"
         android:text="Amazing patterns just a search away"
         android:layout_alignParentBottom="true"

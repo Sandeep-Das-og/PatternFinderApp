@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,97 +7,75 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/logo"
+        android:background="#E89379"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:text="PATTERN FINDER"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:textSize="28dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:src="@drawable/splash">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/filledTextField"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Enter a pattern"
-        app:layout_constraintBottom_toTopOf="@+id/dynamic_layout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:id="@+id/submit_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Search"
-        app:layout_constraintBottom_toTopOf="@+id/dynamic_layout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/filledTextField" />
-
-
-
-    <RelativeLayout
-        android:id="@+id/dynamic_layout"
-        android:layout_width="match_parent"
-        android:layout_marginBottom="25dp"
-        android:layout_height="400dp"
-        android:layout_below="@id/header"
-        android:background="@drawable/relativelay_border"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:textSize="20dp"
-            android:textColor="#000"
-            android:text="Welcome\n1. Enter a pattern in the search bar\n2. Pattern should be separated by commas.\n3. For example - 1,4,7,10,13......\n4. Once you have entered the desired pattern hit the search button below the search
-bar.\n5. A number of results are shown, you can read about all of them and eventually
-get the pattern you are searching for.">
-
-        </TextView>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            android:visibility="invisible">
-
-        </androidx.recyclerview.widget.RecyclerView>
-
-
-    </RelativeLayout>
+    </ImageView>
 
     <TextView
+        android:id="@+id/searchHeader"
         android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_alignParentBottom="true"
-        android:textColor="#4C08C6"
-        android:textStyle="bold"
-        android:text="© IEDC"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dynamic_layout">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logo"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/raleway_medium"
+        android:text="Search"
+        android:textColor="@android:color/black"
+        android:textSize="50sp"
+        android:textStyle="bold">
 
     </TextView>
 
+    <EditText
+        android:id="@+id/search"
+        android:background="@drawable/custom_edittext"
+        android:layout_below="@id/searchHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:hint="Search pattern ..."
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:inputType="text"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/helperText"
+        android:layout_below="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:text="Example - 1,2,3,4,5"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:paddingLeft="10dp">
+
+    </TextView>
+
+    <Button
+        android:id="@+id/search_button"
+        android:layout_below="@+id/helperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button"
+        android:text="Search"
+        android:textColor="@android:color/black">
+
+    </Button>
+
+
+
+</RelativeLayout>

@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+
         Button search = (Button) findViewById(R.id.search_button);
         final DBHelper DB=new DBHelper(this);
         search.setOnClickListener(new View.OnClickListener() {
@@ -49,22 +50,16 @@ public class MainActivity extends AppCompatActivity {
     private void SearchPattern(DBHelper DB) {
         Button search = (Button) findViewById(R.id.search_button);
         EditText value=(EditText) findViewById(R.id.search);
-        try{
-            Cursor cursor=DB.SearchData(value.getText().toString());
-            cursor.moveToFirst();
-            Log.i("Search pattern ",value.getText().toString());
-            value.setText("");
-            int id=cursor.getColumnIndex("id");
-            while (!cursor.isAfterLast()){
-                Log.i("DB mil gya",cursor.getString(id));
-                cursor.moveToNext();
-            }}
-        catch (Exception e){
-            Log.i("e", "Exception aaya sod sad");
-            Log.i("aaya", e.getMessage());
-        }
 
         search.setBackgroundColor(Color.parseColor("#EF5D30"));
+
+        Intent intent = new Intent(MainActivity.this, searchResult.class);
+        intent.putExtra("query",value.getText().toString());
+
+        startActivity(intent);
+    }
+}
+
 //        Manager mgr = new Manager(this);
 //        try{
 //           Pair<String, JSONObject> pa=mgr.searchData("123");
@@ -72,8 +67,3 @@ public class MainActivity extends AppCompatActivity {
 //
 //        }
 //        catch(Exception e){}
-
-        Intent intent = new Intent(MainActivity.this, searchResult.class);
-        startActivity(intent);
-    }
-}

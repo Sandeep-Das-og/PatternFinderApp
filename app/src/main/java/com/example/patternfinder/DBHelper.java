@@ -102,6 +102,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     }
+
+
     public Cursor SearchData(String seq){
         String query="Select * from PatternData where instr(pattern,'," + seq + "')>0 or instr(pattern,'"+seq+"')==1";
         SQLiteDatabase db=this.getReadableDatabase();
